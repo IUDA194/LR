@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks</title>
+</head>
+<body>
+
+<script>
+    // Завдання 1
+    function task1() {
+        let name = 'Генератор захисного поля';
+        let price = 1000;
+
+        alert(`Обрано «${name}», ціна за штуку ${price} кредитів`);
+
+        price = 2000;
+
+        alert(`Обрано «${name}», ціна за штуку ${price} кредитів`);
+    }
+
+    // Завдання 2
+    function task2() {
+        const total = 100;
+        const ordered = 130;
+
+        if (ordered > total) {
+            alert('На складі недостатньо товарів!');
+        } else {
+            alert('Замовлення оформлено, з вами зв\'яжеться менеджер');
+        }
+    }
+
+    // Завдання 3
+    function task3() {
+        const ADMIN_PASSWORD = "jqueryismyjam";
+        let message;
+
+        let userPassword = prompt('Введіть пароль:');
+
+        if (userPassword === null) {
+            message = 'Скасовано користувачем!';
+        } else if (userPassword === ADMIN_PASSWORD) {
+            message = 'Ласкаво просимо!';
+        } else {
+            message = 'Доступ заборонений, невірний пароль!';
+        }
+
+        alert(message);
+    }
+
+    // Завдання 4
+    function task4() {
+        let credits = 23580;
+        const pricePerDroid = 3000;
+
+        let numberOfDroids = prompt('Скільки дроїдів ви хочете купити?');
+        let totalPrice;
+
+        if (numberOfDroids === null) {
+            alert('Скасовано користувачем!');
+        } else {
+            totalPrice = pricePerDroid * numberOfDroids;
+            if (totalPrice > credits) {
+                alert('Недостатньо коштів на рахунку!');
+            } else {
+                credits -= totalPrice;
+                alert(`Ви купили ${numberOfDroids} дроїдів, на рахунку залишилося ${credits} кредитів.`);
+            }
+        }
+    }
+
+    // Завдання 5
+    function task5() {
+        let country = prompt('Введіть країну доставки:');
+        let deliveryCost;
+
+        switch (country.toLowerCase()) {
+            case 'китай':
+                deliveryCost = 100;
+                break;
+            case 'чилі':
+                deliveryCost = 250;
+                break;
+            case 'австралія':
+                deliveryCost = 170;
+                break;
+            case 'індія':
+                deliveryCost = 80;
+                break;
+            case 'ямайка':
+                deliveryCost = 120;
+                break;
+            default:
+                alert('У вашій країні доставка недоступна');
+        }
+
+        if (deliveryCost !== undefined) {
+            alert(`Доставка в ${country} буде коштувати ${deliveryCost} кредитів`);
+        }
+    }
+
+    // Завдання 6
+    function task6() {
+        let input;
+        let total = 0;
+
+        do {
+            input = prompt('Введіть число:');
+            if (input !== null) {
+                if (!isNaN(input)) {
+                    total += Number(input);
+                } else {
+                    alert('Було написано не число, спробуйте ще раз');
+                }
+            }
+        } while (input !== null);
+
+        alert(`Загальна сума чисел дорівнює ${total}`);
+    }
+
+    // Завдання 7
+    function task7() {
+        const available = 100;
+        const ordered = 130;
+        let message;
+
+        if (ordered === 0) {
+            message = "У замовленні немає товарів";
+        } else if (ordered > available) {
+            message = "Ваше замовлення занадто велике, на складі недостатньо товарів!";
+        } else {
+            message = "Замовлення прийнято, наш менеджер зв'яжеться з Вами.";
+        }
+
+        alert(message);
+    }
+
+    // Завдання 8
+    function task8() {
+        const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+
+        const firstTwoEls = fruits.slice(0, 2);
+        const nonExtremeEls = fruits.slice(1, -1);
+        const lastThreeEls = fruits.slice(-3);
+
+        alert(`firstTwoEls: ${firstTwoEls}\nnonExtremeEls: ${nonExtremeEls}\nlastThreeEls: ${lastThreeEls}`);
+    }
+
+    // Завдання 9
+    function task9() {
+        const logItems = function (array) {
+            for (let i = 0; i < array.length; i++) {
+                alert(`${i + 1} - ${array[i]}`);
+            }
+        };
+
+        logItems(['Alex', 'Poly', 'Robert', 'Lada', 'Jay', 'Kiril']);
+        logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+    }
+
+    // Завдання 10
+    function task10() {
+        const formatString = function (string) {
+            if (string.length <= 40) {
+                return string;
+            } else {
+                return string.slice(0, 40) + '...';
+            }
+        };
+
+        alert(formatString('Curabitur ligula sapien, tincidunt non.'));
+        alert(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+        alert(formatString('Curabitur ligula sapien.'));
+        alert(formatString('Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.'));
+    }
+</script>
+
+<!-- Кнопки для виклику функцій -->
+<button onclick="task1()">Завдання 1</button>
+<button onclick="task2()">Завдання 2</button>
+<button onclick="task3()">Завдання 3</button>
+<button onclick="task4()">Завдання 4</button>
+<button onclick="task5()">Завдання 5</button>
+<button onclick="task6()">Завдання 6</button>
+<button onclick="task7()">Завдання 7</button>
+<button onclick="task8()">Завдання 8</button>
+<button onclick="task9()">Завдання 9</button>
+<button onclick="task10()">Завдання 10</button>
+
+</body>
+</html>
